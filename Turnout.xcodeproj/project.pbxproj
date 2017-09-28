@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FCE33E981F7DA5BB00AF142A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE33E971F7DA5BA00AF142A /* AppDelegate.swift */; };
+		FCE33E9A1F7DA5BB00AF142A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE33E991F7DA5BB00AF142A /* ViewController.swift */; };
+		FCE33E9D1F7DA5BB00AF142A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCE33E9B1F7DA5BB00AF142A /* Main.storyboard */; };
+		FCE33E9F1F7DA5BB00AF142A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCE33E9E1F7DA5BB00AF142A /* Assets.xcassets */; };
+		FCE33EA21F7DA5BB00AF142A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCE33EA01F7DA5BB00AF142A /* LaunchScreen.storyboard */; };
+		FCE33EAD1F7DA5BF00AF142A /* TurnoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE33EAC1F7DA5BF00AF142A /* TurnoutTests.swift */; };
+		FCE33EB81F7DA5BF00AF142A /* TurnoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE33EB71F7DA5BF00AF142A /* TurnoutUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FCE33EA91F7DA5BF00AF142A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCE33E8C1F7DA5BA00AF142A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCE33E931F7DA5BA00AF142A;
+			remoteInfo = Turnout;
+		};
+		FCE33EB41F7DA5BF00AF142A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCE33E8C1F7DA5BA00AF142A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCE33E931F7DA5BA00AF142A;
+			remoteInfo = Turnout;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FCE33E941F7DA5BA00AF142A /* Turnout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Turnout.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCE33E971F7DA5BA00AF142A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FCE33E991F7DA5BB00AF142A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FCE33E9C1F7DA5BB00AF142A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FCE33E9E1F7DA5BB00AF142A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FCE33EA11F7DA5BB00AF142A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FCE33EA31F7DA5BB00AF142A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCE33EA81F7DA5BF00AF142A /* TurnoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TurnoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCE33EAC1F7DA5BF00AF142A /* TurnoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnoutTests.swift; sourceTree = "<group>"; };
+		FCE33EAE1F7DA5BF00AF142A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCE33EB31F7DA5BF00AF142A /* TurnoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TurnoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCE33EB71F7DA5BF00AF142A /* TurnoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnoutUITests.swift; sourceTree = "<group>"; };
+		FCE33EB91F7DA5BF00AF142A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FCE33E911F7DA5BA00AF142A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCE33EA51F7DA5BF00AF142A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCE33EB01F7DA5BF00AF142A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FCE33E8B1F7DA5B900AF142A = {
+			isa = PBXGroup;
+			children = (
+				FCE33E961F7DA5BA00AF142A /* Turnout */,
+				FCE33EAB1F7DA5BF00AF142A /* TurnoutTests */,
+				FCE33EB61F7DA5BF00AF142A /* TurnoutUITests */,
+				FCE33E951F7DA5BA00AF142A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FCE33E951F7DA5BA00AF142A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FCE33E941F7DA5BA00AF142A /* Turnout.app */,
+				FCE33EA81F7DA5BF00AF142A /* TurnoutTests.xctest */,
+				FCE33EB31F7DA5BF00AF142A /* TurnoutUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FCE33E961F7DA5BA00AF142A /* Turnout */ = {
+			isa = PBXGroup;
+			children = (
+				FCE33E971F7DA5BA00AF142A /* AppDelegate.swift */,
+				FCE33E991F7DA5BB00AF142A /* ViewController.swift */,
+				FCE33E9B1F7DA5BB00AF142A /* Main.storyboard */,
+				FCE33E9E1F7DA5BB00AF142A /* Assets.xcassets */,
+				FCE33EA01F7DA5BB00AF142A /* LaunchScreen.storyboard */,
+				FCE33EA31F7DA5BB00AF142A /* Info.plist */,
+			);
+			path = Turnout;
+			sourceTree = "<group>";
+		};
+		FCE33EAB1F7DA5BF00AF142A /* TurnoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				FCE33EAC1F7DA5BF00AF142A /* TurnoutTests.swift */,
+				FCE33EAE1F7DA5BF00AF142A /* Info.plist */,
+			);
+			path = TurnoutTests;
+			sourceTree = "<group>";
+		};
+		FCE33EB61F7DA5BF00AF142A /* TurnoutUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FCE33EB71F7DA5BF00AF142A /* TurnoutUITests.swift */,
+				FCE33EB91F7DA5BF00AF142A /* Info.plist */,
+			);
+			path = TurnoutUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FCE33E931F7DA5BA00AF142A /* Turnout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCE33EBC1F7DA5BF00AF142A /* Build configuration list for PBXNativeTarget "Turnout" */;
+			buildPhases = (
+				FCE33E901F7DA5BA00AF142A /* Sources */,
+				FCE33E911F7DA5BA00AF142A /* Frameworks */,
+				FCE33E921F7DA5BA00AF142A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Turnout;
+			productName = Turnout;
+			productReference = FCE33E941F7DA5BA00AF142A /* Turnout.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FCE33EA71F7DA5BF00AF142A /* TurnoutTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCE33EBF1F7DA5BF00AF142A /* Build configuration list for PBXNativeTarget "TurnoutTests" */;
+			buildPhases = (
+				FCE33EA41F7DA5BF00AF142A /* Sources */,
+				FCE33EA51F7DA5BF00AF142A /* Frameworks */,
+				FCE33EA61F7DA5BF00AF142A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCE33EAA1F7DA5BF00AF142A /* PBXTargetDependency */,
+			);
+			name = TurnoutTests;
+			productName = TurnoutTests;
+			productReference = FCE33EA81F7DA5BF00AF142A /* TurnoutTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FCE33EB21F7DA5BF00AF142A /* TurnoutUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCE33EC21F7DA5BF00AF142A /* Build configuration list for PBXNativeTarget "TurnoutUITests" */;
+			buildPhases = (
+				FCE33EAF1F7DA5BF00AF142A /* Sources */,
+				FCE33EB01F7DA5BF00AF142A /* Frameworks */,
+				FCE33EB11F7DA5BF00AF142A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCE33EB51F7DA5BF00AF142A /* PBXTargetDependency */,
+			);
+			name = TurnoutUITests;
+			productName = TurnoutUITests;
+			productReference = FCE33EB31F7DA5BF00AF142A /* TurnoutUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FCE33E8C1F7DA5BA00AF142A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Coca Denisa";
+				TargetAttributes = {
+					FCE33E931F7DA5BA00AF142A = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					FCE33EA71F7DA5BF00AF142A = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FCE33E931F7DA5BA00AF142A;
+					};
+					FCE33EB21F7DA5BF00AF142A = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FCE33E931F7DA5BA00AF142A;
+					};
+				};
+			};
+			buildConfigurationList = FCE33E8F1F7DA5BA00AF142A /* Build configuration list for PBXProject "Turnout" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FCE33E8B1F7DA5B900AF142A;
+			productRefGroup = FCE33E951F7DA5BA00AF142A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FCE33E931F7DA5BA00AF142A /* Turnout */,
+				FCE33EA71F7DA5BF00AF142A /* TurnoutTests */,
+				FCE33EB21F7DA5BF00AF142A /* TurnoutUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FCE33E921F7DA5BA00AF142A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCE33EA21F7DA5BB00AF142A /* LaunchScreen.storyboard in Resources */,
+				FCE33E9F1F7DA5BB00AF142A /* Assets.xcassets in Resources */,
+				FCE33E9D1F7DA5BB00AF142A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCE33EA61F7DA5BF00AF142A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCE33EB11F7DA5BF00AF142A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FCE33E901F7DA5BA00AF142A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCE33E9A1F7DA5BB00AF142A /* ViewController.swift in Sources */,
+				FCE33E981F7DA5BB00AF142A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCE33EA41F7DA5BF00AF142A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCE33EAD1F7DA5BF00AF142A /* TurnoutTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCE33EAF1F7DA5BF00AF142A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCE33EB81F7DA5BF00AF142A /* TurnoutUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCE33EAA1F7DA5BF00AF142A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCE33E931F7DA5BA00AF142A /* Turnout */;
+			targetProxy = FCE33EA91F7DA5BF00AF142A /* PBXContainerItemProxy */;
+		};
+		FCE33EB51F7DA5BF00AF142A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCE33E931F7DA5BA00AF142A /* Turnout */;
+			targetProxy = FCE33EB41F7DA5BF00AF142A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FCE33E9B1F7DA5BB00AF142A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCE33E9C1F7DA5BB00AF142A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FCE33EA01F7DA5BB00AF142A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCE33EA11F7DA5BB00AF142A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FCE33EBA1F7DA5BF00AF142A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FCE33EBB1F7DA5BF00AF142A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FCE33EBD1F7DA5BF00AF142A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Turnout/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.turnout.Turnout;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FCE33EBE1F7DA5BF00AF142A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Turnout/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.turnout.Turnout;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FCE33EC01F7DA5BF00AF142A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TurnoutTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.turnout.TurnoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Turnout.app/Turnout";
+			};
+			name = Debug;
+		};
+		FCE33EC11F7DA5BF00AF142A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TurnoutTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.turnout.TurnoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Turnout.app/Turnout";
+			};
+			name = Release;
+		};
+		FCE33EC31F7DA5BF00AF142A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TurnoutUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.turnout.TurnoutUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Turnout;
+			};
+			name = Debug;
+		};
+		FCE33EC41F7DA5BF00AF142A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TurnoutUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.turnout.TurnoutUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Turnout;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FCE33E8F1F7DA5BA00AF142A /* Build configuration list for PBXProject "Turnout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCE33EBA1F7DA5BF00AF142A /* Debug */,
+				FCE33EBB1F7DA5BF00AF142A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCE33EBC1F7DA5BF00AF142A /* Build configuration list for PBXNativeTarget "Turnout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCE33EBD1F7DA5BF00AF142A /* Debug */,
+				FCE33EBE1F7DA5BF00AF142A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCE33EBF1F7DA5BF00AF142A /* Build configuration list for PBXNativeTarget "TurnoutTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCE33EC01F7DA5BF00AF142A /* Debug */,
+				FCE33EC11F7DA5BF00AF142A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCE33EC21F7DA5BF00AF142A /* Build configuration list for PBXNativeTarget "TurnoutUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCE33EC31F7DA5BF00AF142A /* Debug */,
+				FCE33EC41F7DA5BF00AF142A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FCE33E8C1F7DA5BA00AF142A /* Project object */;
+}

@@ -13,7 +13,7 @@ final class CropperViewController: UIViewController {
     
     //  MARK: - Properties
     
-    var image: UIImage!
+    public static var image: UIImage!
     
     // MARK: - Connections:
     
@@ -41,7 +41,7 @@ final class CropperViewController: UIViewController {
             
             alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.cancel, handler: { _ in
                 
-                _ = self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
             }))
             
             alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
@@ -50,38 +50,21 @@ final class CropperViewController: UIViewController {
             return
         }
         
-        _ = navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func cropRandomAction(_ sender: AnyObject) {
-        
-//        cropView.setCropRectAnin(CGRect(x: 50, y: 200, width: 100, height: 100))
-        
-        
-        /*
-         let randomWidth = max(UInt32(cropView.configuration.cropRect.minimumSize.width), arc4random_uniform(UInt32(cropView.scrollView.frame.size.width)))
-         let randomHeight = max(UInt32(cropView.configuration.cropRect.minimumSize.height), arc4random_uniform(UInt32(cropView.scrollView.frame.size.height)))
-         let offsetX = CGFloat(arc4random_uniform(UInt32(cropView.scrollView.frame.size.width) - randomWidth))
-         let offsetY = CGFloat(arc4random_uniform(UInt32(cropView.scrollView.frame.size.height) - randomHeight))
-         
-         cropView.cropRect(CGRectMake(offsetX, offsetY, CGFloat(randomWidth), CGFloat(randomHeight)))*/
-    }
-    
-    @IBAction func randomImageAction(_ sender: AnyObject) {
-        let images = Constants.images.flatMap { $0 }
-        cropView.image = UIImage(named: images[Int(arc4random_uniform(UInt32(images.count)))])        
-        angle = 0.0
-    }
-    
+
     @IBAction func cropImageAction(_ sender: AnyObject) {
         
          guard let image = cropView.croppedImage else {
             return
          }
+        
+        CropperViewController.image = image
+        dismiss(animated: true, completion: nil)
          
-         let imageViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageViewController") as! ImageViewController
-         imageViewController.image = image
-         navigationController?.pushViewController(imageViewController, animated: true)
+//         let imageViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageViewController") as! ImageViewController
+//         imageViewController.image = image
+//         navigationController?.pushViewController(imageViewController, animated: true)
     }
     
     @IBAction func showHideOverlayAction(_ sender: AnyObject) {
@@ -111,11 +94,11 @@ final class CropperViewController: UIViewController {
     
     @IBAction func rotateAction(_ sender: AnyObject) {
 
-        angle += M_PI_2
+        angle += .pi/2
         
         cropView.rotate(angle, withDuration: 0.3, completion: { _ in
             
-            if self.angle == 2 * M_PI {
+            if self.angle == 2 * .pi {
                 self.angle = 0.0
             }
         })
@@ -133,84 +116,10 @@ final class CropperViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.isNavigationBarHidden = true
-
-        // Programmatically initialization
-        
-        /*
-        cropViewProgrammatically = AKImageCropperView()
-        */
-        
-        // iPhone 4.7"
-        
-        /*
-        cropViewProgrammatically = AKImageCropperView(frame: CGRect(x: 0, y: 20.0, width: 375.0, height: 607.0))
-        view.addSubview(cropViewProgrammatically)
-        */
-        
-        // with constraints
-        
-        /*
-        cropViewProgrammatically = AKImageCropperView()
-        cropViewProgrammatically.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(cropViewProgrammatically)
-        
-        if #available(iOS 9.0, *) {
-            
-            cropViewProgrammatically.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            cropViewProgrammatically.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-            topLayoutGuide.bottomAnchor.constraint(equalTo: cropViewProgrammatically.topAnchor).isActive = true
-            cropViewProgrammatically.bottomAnchor.constraint(equalTo: navigationView.topAnchor).isActive = true
-            
-        } else {
-            
-            for attribute: NSLayoutAttribute in [.top, .left, .bottom, .right] {
-                
-                var toItem: Any?
-                var toAttribute: NSLayoutAttribute!
-                
-                if attribute == .top {
-                    
-                    toItem = topLayoutGuide
-                    toAttribute = .bottom
-                    
-                } else if attribute == .bottom {
-                    
-                    toItem = navigationView
-                    toAttribute = .top
-                } else {
-                    toItem = view
-                    toAttribute = attribute
-                }
-                
-                view.addConstraint(
-                    NSLayoutConstraint(
-                        item: cropViewProgrammatically,
-                        attribute: attribute,
-                        relatedBy: NSLayoutRelation.equal,
-                        toItem: toItem,
-                        attribute: toAttribute,
-                        multiplier: 1.0, constant: 0))
-            }
-        }
-        */
-        
-
-        // Inset for overlay action view
-        
-        /*
-        cropView.overlayView?.configuraiton.cropRectInsets.bottom = 50
-        */
-        
-        // Custom overlay view configuration
-        
-        /*
-        var customConfiguraiton = AKImageCropperCropViewConfiguration()
-            customConfiguraiton.cropRectInsets.bottom = 50
-        cropView.overlayView = CustomImageCropperOverlayView(configuraiton: customConfiguraiton)
-        */
         
         cropView.delegate = self
-        cropView.image = image
+        cropView.image = CropperViewController.image
+        MyProfileViewController.state = "crop"
     }
 }
 

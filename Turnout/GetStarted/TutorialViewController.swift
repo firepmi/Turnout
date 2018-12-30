@@ -9,69 +9,80 @@
 import UIKit
 
 class TutorialViewController: UIViewController{
-    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var viewPager: TutorialViewPager!
+    
     @IBAction func onExit(_ sender: Any) {
+        
     }
-    var imageIndex:NSInteger = 0
-    var maximages = 5
-    var imageList: [String] = ["tutorial1.png", "tutorial2.png", "tutorial3.png", "tutorial4.png", "tutorial5.png"]
+    
+    @IBAction func onMoveRight(_ sender: Any) {
+        if viewPager.currentPosition < viewPager.numberOfItems {
+            viewPager.scrollToPage(index: viewPager.currentPosition+1)
+        }
+    }
+    @IBAction func onMoveLeft(_ sender: Any) {
+        if viewPager.currentPosition > 0 {
+            viewPager.scrollToPage(index: viewPager.currentPosition-1)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped)) // put : at the end of method name
-        swipeRight.direction = UISwipeGestureRecognizerDirection.right
-        self.view.addGestureRecognizer(swipeRight)
-        
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swiped)) // put : at the end of method name
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
-        self.view.addGestureRecognizer(swipeLeft)
-        
-        imageView.image = UIImage(named:"tutorial1.png")
+        viewPager.dataSource = self
+//        viewPager.animationNext()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewPager.scrollToPage(index: 0)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    @objc func swiped(gesture: UIGestureRecognizer) {
-        
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            
-            switch swipeGesture.direction {
-                
-            case UISwipeGestureRecognizerDirection.right :
-                print("User swiped right")
-                
-                // decrease index first
-                
-                imageIndex -= 1
-                
-                // check if index is in range
-                
-                if imageIndex <= 0 {
-                    
-                    imageIndex = maximages
-                }
-                
-                imageView.image = UIImage(named: imageList[imageIndex])
-                
-            case UISwipeGestureRecognizerDirection.left:
-                print("User swiped Left")
-                
-                // increase index first
-                
-                imageIndex += 1
-                
-                // check if index is in range
-                
-                if imageIndex >= maximages {
-                    
-                    imageIndex = 0
-                }
-                
-                imageView.image = UIImage(named: imageList[imageIndex])
-                
-            default:
-                break //stops the code/codes nothing.
-            }
-        }
-    }
 }
+extension TutorialViewController:TutorialViewPagerDataSource{
+    func numberOfItems(viewPager:TutorialViewPager) -> Int {
+        return 6;
+    }
+    
+    func viewAtIndex(viewPager:TutorialViewPager, index:Int, view:UIView?) -> UIView {
+        var newView = view;
+        var label:UILabel?
+        var imageView:UIImageView
+        let imageName = "tutor\(index+1).png"
+        let image = UIImage(named: imageName)
+        
+        if(newView == nil){
+            newView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height:  self.view.frame.height))
+            newView!.backgroundColor = .randomColor()
+            
+            label = UILabel(frame: newView!.bounds)
+            label!.tag = 1
+            label!.autoresizingMask =  [.flexibleWidth, .flexibleHeight]
+            label!.textAlignment = .center
+            label!.font =  label!.font.withSize(28)
+            newView?.addSubview(label!)
+            
+            
+            imageView = UIImageView(image: image!)
+            
+            imageView.frame = viewPager.bounds
+            imageView.tag = 2
+            newView?.addSubview(imageView)
+        }else{
+            label = newView?.viewWithTag(1) as? UILabel
+            imageView = newView?.viewWithTag(2) as! UIImageView
+        }
+        
+        label?.text = "Page View Pager  \(index+1)"
+        imageView.image = image
+        
+        return newView!
+    }
+    
+    func didSelectedItem(index: Int) {
+        print("select index \(index)")
+    }
+    
+}
+

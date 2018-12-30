@@ -19,7 +19,7 @@ class PublicProfileViewController: UIViewController{
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var thumbupBarView: UIView!
-    var ref: DatabaseReference!
+    var ref: FIRDatabaseReference!
     var alertIndicator: UIAlertController!
     var refStr:String = ""
     var uid = ""
@@ -30,7 +30,7 @@ class PublicProfileViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let user = Auth.auth().currentUser
+        let user = FIRAuth.auth()?.currentUser
         
         
         alertIndicator = UIAlertController(title: "Please Wait...", message: "\n\n", preferredStyle: UIAlertControllerStyle.alert)
@@ -76,12 +76,12 @@ class PublicProfileViewController: UIViewController{
     }
     func loadData(){
         present(alertIndicator, animated: true, completion: nil)
-        ref = Database.database().reference()
+        ref = FIRDatabase.database().reference()
         
         ref.child("profile").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             self.alertIndicator.dismiss(animated: true, completion: nil)
             for child in snapshot.children{
-                let value = child as! DataSnapshot
+                let value = child as! FIRDataSnapshot
                 print(value.key)
                 if value.key == "full_name"{
                     self.nameLabel.text = value.value as? String
@@ -113,14 +113,21 @@ class PublicProfileViewController: UIViewController{
             print(error.localizedDescription)
         }
         
-        let storage = Storage.storage()
+        let storage = FIRStorage.storage()
         let storageRef = storage.reference().child( "/profile/\(uid ?? "null").jpg" )
-        storageRef.getData(maxSize: 1 * 2048 * 2048) { (data, error) -> Void in
+        let image = Globals.getImageFromLocal("\(uid ?? "null").jpg")
+        if image.ciImage != nil || image.cgImage != nil {
+            self.imageView.image = image
+            //            self.tableView.reloadData()
+//            return
+        }
+        storageRef.data(withMaxSize: 1 * 2048 * 2048) { (data, error) -> Void in
             if (error != nil) {
                 print(error ?? "null")
             } else {
                 let myImage: UIImage! = UIImage(data: data!)
                 self.imageView.image = myImage
+                Globals.saveImageDocumentDirectory(sign: myImage, filename: "\(self.uid ?? "null").jpg")
             }
         }
     }

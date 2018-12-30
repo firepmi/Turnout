@@ -11,7 +11,7 @@ import Firebase
 
 class MobileNumberViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var textField: UITextField!
-    var ref: DatabaseReference!
+    var ref: FIRDatabaseReference!
     var alertIndicator: UIAlertController!
     var pn = ""
     override func viewDidLoad() {
@@ -31,8 +31,8 @@ class MobileNumberViewController: UIViewController, UITextFieldDelegate{
     }
     func loadData(){
         present(alertIndicator, animated: true, completion: nil)
-        ref = Database.database().reference()
-        let user = Auth.auth().currentUser
+        ref = FIRDatabase.database().reference()
+        let user = FIRAuth.auth()?.currentUser
         ref.child("profile").child((user?.uid)!).child("phone_number").observeSingleEvent(of: .value, with: { (snapshot) in
             self.alertIndicator.dismiss(animated: true, completion: nil)
             
@@ -71,8 +71,8 @@ class MobileNumberViewController: UIViewController, UITextFieldDelegate{
     }
     func saveData(){
         present(alertIndicator, animated: true, completion: nil)
-        ref = Database.database().reference()
-        let user = Auth.auth().currentUser
+        ref = FIRDatabase.database().reference()
+        let user = FIRAuth.auth()?.currentUser
         ref.child("profile").child((user?.uid)!).child("phone_number").setValue(textField.text){ (error, ref) -> Void in
             if(error == nil){
                 print("print_name uploaded!")

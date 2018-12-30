@@ -14,7 +14,8 @@ class PageContentViewController: UIPageViewController, UIPageViewControllerDataS
         override func viewDidLoad() {
             super.viewDidLoad()
             self.delegate = self
-            self.dataSource = self            
+            self.dataSource = self
+            self.automaticallyAdjustsScrollViewInsets = false;
             let vc1 = self.storyboard?.instantiateViewController(withIdentifier: "Notification")
             let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "Main")
             let vc3 = self.storyboard?.instantiateViewController(withIdentifier: "MyProfile")
@@ -46,18 +47,18 @@ class PageContentViewController: UIPageViewController, UIPageViewControllerDataS
         return nil
     }
     
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return pages.count
-    }
-    
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        if let identifier = viewControllers?.first?.restorationIdentifier {
-            if let index = pages.index(of: identifier) {
-                return index
-            }
-        }
-        return 0
-    }
+//    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+//        return pages.count
+//    }
+//    
+//    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+//        if let identifier = viewControllers?.first?.restorationIdentifier {
+//            if let index = pages.index(of: identifier) {
+//                return index
+//            }
+//        }
+//        return 0
+//    }
         
         // MARK:- Other Methods
 //        func getViewControllerAtIndex(index: NSInteger) -> PageContentViewController

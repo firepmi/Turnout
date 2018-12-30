@@ -13,6 +13,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var user = FIRAuth.auth()?.currentUser
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,10 +22,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         emailTextField.delegate = self;
         passwordTextField.delegate = self;
-        
+        user = FIRAuth.auth()?.currentUser
     }
-    override func viewDidAppear(_ animated: Bool) {
-        if(FIRAuth.auth()?.currentUser != nil ){
+    override func viewDidAppear(_ animated: Bool) {        
+        if(user != nil ){
             self.performSegue(withIdentifier: "toMain", sender: nil)
         }
     }

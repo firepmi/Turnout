@@ -13,15 +13,15 @@ class ReviewViewController: UIViewController{
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var coverImage: UILabel!
     
-    var ref: DatabaseReference!
+    var ref: FIRDatabaseReference!
     var alertIndicator: UIAlertController!
     var refStr:String = ""
     var uid = ""
     
     @IBAction func onThumbUp(_ sender: Any) {
         present(alertIndicator, animated: true, completion: nil)
-        ref = Database.database().reference()
-        let user = Auth.auth().currentUser
+        ref = FIRDatabase.database().reference()
+        let user = FIRAuth.auth()?.currentUser
         ref.child("profile").child(uid).child("review").child((user?.uid)!).setValue("1"){ (error, ref) -> Void in
             if(error == nil){
                 print("Thumb up!")
@@ -31,8 +31,8 @@ class ReviewViewController: UIViewController{
     }
     @IBAction func onThumbDown(_ sender: Any) {
         present(alertIndicator, animated: true, completion: nil)
-        ref = Database.database().reference()
-        let user = Auth.auth().currentUser
+        ref = FIRDatabase.database().reference()
+        let user = FIRAuth.auth()?.currentUser
         ref.child("profile").child(uid).child("review").child((user?.uid)!).setValue("-1"){ (error, ref) -> Void in
             if(error == nil){
                 print("Thumb down!")
@@ -57,12 +57,12 @@ class ReviewViewController: UIViewController{
     }
     func loadData(){
         present(alertIndicator, animated: true, completion: nil)
-        ref = Database.database().reference()
+        ref = FIRDatabase.database().reference()
         
         ref.child("profile").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             self.alertIndicator.dismiss(animated: true, completion: nil)
             for child in snapshot.children{
-                let value = child as! DataSnapshot
+                let value = child as! FIRDataSnapshot
                 print(value.key)
                 if value.key == "full_name"{
                     self.nameLabel.text = value.value as? String

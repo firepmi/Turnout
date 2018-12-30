@@ -19,7 +19,7 @@ final class ChatViewController: JSQMessagesViewController {
     @IBAction func onSetting(_ sender: Any) {
     }
     @IBOutlet weak var titleLabel: UILabel!
-    var channelRef: DatabaseReference?
+    var channelRef: FIRDatabaseReference?
     
     @IBAction func onBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -27,13 +27,13 @@ final class ChatViewController: JSQMessagesViewController {
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var titleView: UIView!
-    private lazy var messageRef: DatabaseReference = self.channelRef!.child("messages")
-    fileprivate lazy var storageRef: StorageReference = Storage.storage().reference()
-    private lazy var userIsTypingRef: DatabaseReference = self.channelRef!.child("typingIndicator").child(self.senderId)
-    private lazy var usersTypingQuery: DatabaseQuery = self.channelRef!.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
+    private lazy var messageRef: FIRDatabaseReference = self.channelRef!.child("messages")
+    fileprivate lazy var storageRef: FIRStorageReference = FIRStorage.storage().reference()
+    private lazy var userIsTypingRef: FIRDatabaseReference = self.channelRef!.child("typingIndicator").child(self.senderId)
+    private lazy var usersTypingQuery: FIRDatabaseQuery = self.channelRef!.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
     
-    private var newMessageRefHandle: DatabaseHandle?
-    private var updatedMessageRefHandle: DatabaseHandle?
+    private var newMessageRefHandle: FIRDatabaseHandle?
+    private var updatedMessageRefHandle: FIRDatabaseHandle?
     
     private var messages: [JSQMessage] = []
     private var photoMessageMap = [String: JSQPhotoMediaItem]()
@@ -62,7 +62,7 @@ final class ChatViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.senderId = Auth.auth().currentUser?.uid
+        self.senderId = FIRAuth.auth()?.currentUser?.uid
         self.senderDisplayName = Globals.name
         
         let dateFormatter : DateFormatter = DateFormatter()
@@ -71,7 +71,7 @@ final class ChatViewController: JSQMessagesViewController {
         let dateString = dateFormatter.string(from: date)
         
         self.channel = Channel(id: "channel1", name: "ChatRoom1", date: dateString)
-        self.channelRef = Database.database().reference().child("chat_room").child(Globals.chatRefStr)
+        self.channelRef = FIRDatabase.database().reference().child("chat_room").child(Globals.chatRefStr)
         
         observeMessages()
         
@@ -219,14 +219,14 @@ final class ChatViewController: JSQMessagesViewController {
     }
     
     private func fetchImageDataAtURL(_ photoURL: String, forMediaItem mediaItem: JSQPhotoMediaItem, clearsPhotoMessageMapOnSuccessForKey key: String?) {
-        let storageRef = Storage.storage().reference(forURL: photoURL)
-        storageRef.getData(maxSize: INT64_MAX){ (data, error) in
+        let storageRef = FIRStorage.storage().reference(forURL: photoURL)
+        storageRef.data(withMaxSize: INT64_MAX){ (data, error) in
             if let error = error {
                 print("Error downloading image data: \(error)")
                 return
             }
             
-            storageRef.getMetadata(completion: { (metadata, metadataErr) in
+            storageRef.metadata(completion: { (metadata, metadataErr) in
                 if let error = metadataErr {
                     print("Error downloading metadata: \(error)")
                     return
@@ -253,7 +253,7 @@ final class ChatViewController: JSQMessagesViewController {
         userIsTypingRef.onDisconnectRemoveValue()
         usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqual(toValue: true)
         
-        usersTypingQuery.observe(.value) { (data: DataSnapshot) in
+        usersTypingQuery.observe(.value) { (data: FIRDataSnapshot) in
             
             // You're the only typing, don't show the indicator
             if data.childrenCount == 1 && self.isTyping {
@@ -387,10 +387,10 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
                     let imageFileURL = contentEditingInput?.fullSizeImageURL
                     
                     // 5
-                    let path = "\(Auth.auth().currentUser?.uid)/\(Int(Date.timeIntervalSinceReferenceDate * 1000))/\(photoReferenceUrl.lastPathComponent)"
+                    let path = "\(String(describing: FIRAuth.auth()?.currentUser?.uid))/\(Int(Date.timeIntervalSinceReferenceDate * 1000))/\(photoReferenceUrl.lastPathComponent)"
                     
                     // 6
-                    self.storageRef.child(path).putFile(from: imageFileURL!, metadata: nil) { (metadata, error) in
+                    self.storageRef.child(path).putFile(imageFileURL!, metadata: nil) { (metadata, error) in
                         if let error = error {
                             print("Error uploading photo: \(error.localizedDescription)")
                             return

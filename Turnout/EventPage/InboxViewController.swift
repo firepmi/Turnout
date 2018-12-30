@@ -14,7 +14,7 @@ class InboxViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var userList = [String]()
     var messageList = [String]()
     var refStrList = [String]()
-    var ref: DatabaseReference!
+    var ref: FIRDatabaseReference!
     var alertIndicator: UIAlertController!
     
     @IBOutlet weak var tableView: UITableView!
@@ -34,7 +34,7 @@ class InboxViewController: UIViewController, UITableViewDelegate, UITableViewDat
         activityView.startAnimating()
         alertIndicator.view.addSubview(activityView)
         present(alertIndicator, animated: true, completion: nil)
-        ref = Database.database().reference()
+        ref = FIRDatabase.database().reference()
         imageList = [UIImage]()
         userList = [String]()
         refStrList = [String]()
@@ -44,12 +44,12 @@ class InboxViewController: UIViewController, UITableViewDelegate, UITableViewDat
             var k = 0;
             
             for child in snapshot.children {
-                let value = child as! DataSnapshot
+                let value = child as! FIRDataSnapshot
                 let data = value.value as! Dictionary<String, Any>
                 let refArr = value.key.components(separatedBy: "_")
                 let user1 = refArr[1]
                 let user2 = refArr[0]
-                let user = Auth.auth().currentUser
+                let user = FIRAuth.auth()?.currentUser
                 var sender:String
                 if user1 == user?.uid {
                     sender = user2
@@ -86,9 +86,9 @@ class InboxViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return array.last!["text"]!
     }
     func getImage(_ ref: String, imageIndex index:Int){
-        let storage = Storage.storage()
+        let storage = FIRStorage.storage()
         let storageRef = storage.reference().child( "/profile/\(ref).jpg" )
-        storageRef.getData(maxSize: 1 * 2048 * 2048) { (data, error) -> Void in
+        storageRef.data(withMaxSize: 1 * 2048 * 2048) { (data, error) -> Void in
             var myImage:UIImage = UIImage()
             if (error != nil) {
                 print(error ?? "null")
@@ -133,7 +133,7 @@ class InboxViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let labe3:UILabel = cell.viewWithTag(103) as! UILabel;
         labe3.text = self.messageList[indexPath.row]
         
-        var cover:UIView = cell.viewWithTag(104) as! UIView
+        let cover:UIView = cell.viewWithTag(104)!
         cover.layer.cornerRadius = 28
         switch indexPath.row%4 {
         case 0:
@@ -163,9 +163,27 @@ class InboxViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+//        present(alertIndicator, animated: true, completion: nil)
+        ref = FIRDatabase.database().reference()
+        
+        ref.child("profile").child(userList[indexPath.row]).observeSingleEvent(of: .value, with: { (snapshot) in
+//            self.alertIndicator.dismiss(animated: false, completion: nil)
+            for child in snapshot.children{
+                let value = child as! FIRDataSnapshot
+                print(value.key)
+                if value.key == "full_name"{
+                    Globals.name = value.value as! String
+                }
+            }
+            self.performSegue(withIdentifier: "toChat", sender: nil)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
         Globals.chatRefStr = refStrList[indexPath.row]
 //
-        self.performSegue(withIdentifier: "toChat", sender: nil)
+        
         
     }
     override func didReceiveMemoryWarning() {

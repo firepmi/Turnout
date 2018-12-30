@@ -10,9 +10,9 @@ import UIKit
 import Firebase
 
 class SettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-    let listStr = ["Password", "Edit Bio","Notificatoin", "Email", "Mobile Number","Support","Terms of Service","Disable Account","See me on seek","Location","Log out"]
+    let listStr = ["Password", "Edit Bio","Notification", "Email", "Mobile Number","Support","Terms of Service","Disable Account","See me on seek","Location","Log out"]
     let sectionList = ["My Account", "More Info","Privacy", "Account Actions"]
-    let items = [["Password", "Edit Bio","Notificatoin", "Email", "Mobile Number"], ["Support","Terms of Service","Disable Account"], ["See me on seek","Location"], ["Log out"]]
+    let items = [["Password", "Edit Bio","Notification", "Email", "Mobile Number"], ["Support","Terms of Service","Disable Account"], ["See me on seek","Location"], ["Log out"]]
     
     @IBAction func onBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -45,21 +45,22 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.performSegue(withIdentifier: "toPassword", sender: nil)
         }
         else if items[indexPath.section][indexPath.row] == "Edit Bio"{
-            self.performSegue(withIdentifier: "settingToLogin", sender: nil)
+            self.performSegue(withIdentifier: "toEditBio", sender: nil)
         }
-        else if items[indexPath.section][indexPath.row] == "Notificatoin"{
-//            self.performSegue(withIdentifier: "settingToLogin", sender: nil)
+        else if items[indexPath.section][indexPath.row] == "Notification"{
+            self.performSegue(withIdentifier: "toNotificationToggle", sender: nil)
         }
         else if items[indexPath.section][indexPath.row] == "Email"{
-            
+            self.performSegue(withIdentifier: "toEmail", sender: nil)
         }
         else if items[indexPath.section][indexPath.row] == "Mobile Number"{
-            
+            self.performSegue(withIdentifier: "toPhoneNumber", sender: nil)
         }
         else if items[indexPath.section][indexPath.row] == "Support"{
             
         }
         else if items[indexPath.section][indexPath.row] == "Terms of Service"{
+            Globals.state = "setting"
             self.performSegue(withIdentifier: "settingToTerm", sender: nil)
         }
         else if items[indexPath.section][indexPath.row] == "Disable Account"{
@@ -79,9 +80,8 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     func logOut(){
         let alert = UIAlertController(title: "Turnout", message: "Do you want logout?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { action in
-            
             try! FIRAuth.auth()!.signOut()
-            self.performSegue(withIdentifier: "settingToLogin", sender: nil)
+            self.performSegue(withIdentifier: "settingToLogin", sender: nil)            
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { action in
             
@@ -89,6 +89,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.present(alert, animated: true, completion: nil)
     }
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items[section].count
     }

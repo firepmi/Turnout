@@ -16,4 +16,13 @@ class TermsAndConditionsViewController: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()        
     }
+    @IBAction func onExit(_ sender: Any) {
+        if Globals.state == "setting" {
+            dismiss(animated: true, completion: nil)
+            Globals.state = "init"
+        }
+        else {
+            self.performSegue(withIdentifier: "toTutor", sender: nil)
+        }
+    }
 }

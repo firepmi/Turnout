@@ -14,13 +14,13 @@ class ReportViewController: UIViewController{
 
     @IBOutlet weak var coverView: UIView!
     @IBOutlet weak var textCover: UIView!
-    var ref: DatabaseReference!
+    var ref: FIRDatabaseReference!
     var alertIndicator: UIAlertController!
     var uid = ""
     @IBAction func onSubmit(_ sender: Any) {
         present(alertIndicator, animated: true, completion: nil)
-        ref = Database.database().reference()
-        let user = Auth.auth().currentUser
+        ref = FIRDatabase.database().reference()
+        let user = FIRAuth.auth()?.currentUser
         ref.child("report").child(uid).child((user?.uid)!).setValue(textView.text){ (error, ref) -> Void in
             if(error == nil){
                 print("report uploaded!")

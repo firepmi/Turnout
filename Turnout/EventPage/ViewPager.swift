@@ -42,9 +42,9 @@ public class ViewPager: UIView {
     
     func setupView() {
         self.addSubview(scrollView)
-        self.addSubview(pageControl)
+//        self.addSubview(pageControl)
         setupScroolView();
-        setupPageControl();
+//        setupPageControl();
         reloadData()
     }
     

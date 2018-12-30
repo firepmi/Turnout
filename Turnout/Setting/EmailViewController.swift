@@ -14,7 +14,7 @@ class EmailViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let user = Auth.auth().currentUser
+        let user = FIRAuth.auth()?.currentUser
         emailLabel.text = user?.email
     }
     override func didReceiveMemoryWarning() {

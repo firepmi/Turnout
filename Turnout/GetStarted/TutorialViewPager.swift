@@ -8,20 +8,20 @@
 
 import UIKit
 
-@objc public protocol  ViewPagerDataSource {
-    func numberOfItems(viewPager:ViewPager) -> Int
-    func viewAtIndex(viewPager:ViewPager, index:Int, view:UIView?) -> UIView
+@objc public protocol  TutorialViewPagerDataSource {
+    func numberOfItems(viewPager:TutorialViewPager) -> Int
+    func viewAtIndex(viewPager:TutorialViewPager, index:Int, view:UIView?) -> UIView
     @objc optional func didSelectedItem(index:Int)
     
 }
 
-public class ViewPager: UIView {
+public class TutorialViewPager: UIView {
     
     var pageControl:UIPageControl = UIPageControl()
     var scrollView:UIScrollView = UIScrollView()
     var currentPosition:Int = 0
     
-    var dataSource:ViewPagerDataSource? = nil {
+    var dataSource:TutorialViewPagerDataSource? = nil {
         didSet {
             reloadData()
         }
@@ -54,7 +54,7 @@ public class ViewPager: UIView {
         scrollView.bounces = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
-        scrollView.delegate = self;
+        scrollView.delegate = self as? UIScrollViewDelegate;
         let topContraints = NSLayoutConstraint(item: scrollView, attribute:
             .top, relatedBy: .equal, toItem: self,
                   attribute: NSLayoutAttribute.top, multiplier: 1.0,
@@ -180,7 +180,7 @@ public class ViewPager: UIView {
     
 }
 
-extension ViewPager:UIScrollViewDelegate{
+extension TutorialViewPager:UIScrollViewDelegate{
     
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         NSObject.cancelPreviousPerformRequests(withTarget: self)
@@ -199,9 +199,7 @@ extension ViewPager:UIScrollViewDelegate{
     
 }
 
-extension ViewPager{
-    
-    
+extension TutorialViewPager{
     func animationNext(){
         Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(ViewPager.moveToNextPage), userInfo: nil, repeats: true)
     }
